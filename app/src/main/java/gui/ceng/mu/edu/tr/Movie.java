@@ -2,11 +2,13 @@ package gui.ceng.mu.edu.tr;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.view.View;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Movie implements Parcelable {
+public class Movie implements Serializable {
     private String name;
     private String director;
     private int year;
@@ -63,19 +65,6 @@ public class Movie implements Parcelable {
 //Getters and setters
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.name);
-        dest.writeString(this.director);
-        dest.writeInt(this.year);
-        dest.writeStringList(this.stars);
-        dest.writeString(this.description);
-    }
 
     public void readFromParcel(Parcel source) {
         this.name = source.readString();

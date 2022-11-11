@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import gui.ceng.mu.edu.tr.placeholder.PlaceholderContent.PlaceholderItem;
-import gui.ceng.mu.edu.tr.databinding.FragmentItemBinding;
-
 import java.util.List;
 
 /**
@@ -21,8 +19,9 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
 
     private final List<Movie> mValues;
     private final OnMovieSelected mListener;
-    public MyMovieRecyclerViewAdapter(List<Movie> items,OnMovieSelected listener) {
-        mListener = listener;
+
+    public MyMovieRecyclerViewAdapter(List<Movie> items, OnMovieSelected listener) {
+        this.mListener = listener;
         mValues = items;
     }
     int selectedIndex;

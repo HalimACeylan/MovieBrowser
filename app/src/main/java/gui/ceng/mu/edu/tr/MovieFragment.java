@@ -40,7 +40,11 @@ public class MovieFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
+
         super.onAttach(context);
+        if (context instanceof OnMovieSelected) {
+            mListener = (OnMovieSelected) context;
+        }
     }
 
     @Override
@@ -95,7 +99,7 @@ public class MovieFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            //recyclerView.setAdapter(new MyMovieRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setAdapter(new MyMovieRecyclerViewAdapter(movies,mListener));
         }
         return view;
     }
